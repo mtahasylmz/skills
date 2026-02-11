@@ -9,20 +9,22 @@ Track function-level code changes across git repositories using Upstash Redis Se
 
 ## Setup
 
-Before first use, run the install script then configure credentials:
+Before first use, run the install script to ensure `rflog` is available:
 
 ```bash
 scripts/ensure_installed.sh
-rflog setup
-rflog setup-indexes
 ```
 
-`rflog setup` prompts for:
+Required environment variables (in `.env` or exported):
 - `UPSTASH_REDIS_REST_URL` — Upstash Redis REST URL
 - `UPSTASH_REDIS_REST_TOKEN` — Upstash Redis REST token
-- `OPENAI_API_KEY` (optional) — for `--use-llm` and `review-diff`
+- `OPENAI_API_KEY` (optional) — Required only for `--use-llm` and `review-diff`
 
-Credentials are saved to `~/.rflog/.env` and work from any directory.
+One-time index setup:
+
+```bash
+rflog setup-indexes
+```
 
 ## Workflows
 
